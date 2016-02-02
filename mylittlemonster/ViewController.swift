@@ -37,7 +37,8 @@ class ViewController: UIViewController {
         penalty1.alpha = DIM_ALPHA
         penalty2.alpha = DIM_ALPHA
         penalty3.alpha = DIM_ALPHA
-    
+        
+        itemDroppedOnTarget(0)
         startTimer()
     }
     
@@ -98,5 +99,6 @@ class ViewController: UIViewController {
     func gameOver() {
         timer.invalidate()
         monsterImg.playDeadAnimation()
+        monsterImg.stopAnimating()
     }
 }
