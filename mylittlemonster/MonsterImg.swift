@@ -44,7 +44,7 @@ class MonsterImg: UIImageView {
             let img = "dead\(x).png"
             deadImageArray.append(UIImage(named: img)!)
         }
-        animate(deadImageArray, duration: 0.8, repetitions: 1)
+        animate(deadImageArray, duration: 1.0, repetitions: 1)
     }
     
     func animate(imageArrayToPlay: [UIImage], duration: Double, repetitions: Int) {
