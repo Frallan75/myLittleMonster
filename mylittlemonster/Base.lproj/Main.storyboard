@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7l4-D1-CGV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9pv-pi-9GY">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="mylittlemonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainVC" id="BYZ-38-t0r" customClass="ViewController" customModule="mylittlemonster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="eiO-yD-WAA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monster1bg" translatesAutoresizingMaskIntoConstraints="NO" id="eiO-yD-WAA">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <gestureRecognizers/>
                             </imageView>
@@ -67,8 +67,8 @@
                                     <constraint firstAttribute="height" constant="50" id="sQ6-WE-iR0"/>
                                 </constraints>
                             </imageView>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="740" verticalCompressionResistancePriority="740" image="idle1" translatesAutoresizingMaskIntoConstraints="NO" id="QHC-3J-5bH" customClass="MonsterImg" customModule="mylittlemonster" customModuleProvider="target">
-                                <rect key="frame" x="165" y="370" width="270" height="180"/>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="740" verticalCompressionResistancePriority="740" image="monster1idle1" translatesAutoresizingMaskIntoConstraints="NO" id="QHC-3J-5bH" customClass="MonsterImg" customModule="mylittlemonster" customModuleProvider="target">
+                                <rect key="frame" x="165" y="379" width="270" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="270" id="a6Q-5O-bAq"/>
                                     <constraint firstAttribute="height" constant="180" id="tAq-dG-8Uk">
@@ -76,8 +76,19 @@
                                     </constraint>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01W-lq-gMY">
+                                <rect key="frame" x="191" y="276" width="219" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="219" id="6bu-ME-RWi"/>
+                                    <constraint firstAttribute="height" constant="47" id="UC1-d4-9La"/>
+                                </constraints>
+                                <state key="normal" image="RESTART"/>
+                                <connections>
+                                    <action selector="restartButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nwB-Kh-e2m"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zTi-pI-kb2" userLabel="Food Stack">
-                                <rect key="frame" x="191" y="136" width="210" height="80"/>
+                                <rect key="frame" x="126" y="136" width="340" height="80"/>
                                 <subviews>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="2SF-Xa-p1e" customClass="DragImg" customModule="mylittlemonster" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -91,8 +102,11 @@
                                             </constraint>
                                         </constraints>
                                     </imageView>
-                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="psC-gs-QH7" customClass="DragImg" customModule="mylittlemonster" customModuleProvider="target">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dynamite (2)" translatesAutoresizingMaskIntoConstraints="NO" id="ZcL-kX-Zj8" customClass="DragImg" customModule="mylittlemonster" customModuleProvider="target">
                                         <rect key="frame" x="130" y="0.0" width="80" height="80"/>
+                                    </imageView>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="psC-gs-QH7" customClass="DragImg" customModule="mylittlemonster" customModuleProvider="target">
+                                        <rect key="frame" x="260" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="MFQ-Ih-q5o">
                                                 <variation key="heightClass=compact-widthClass=regular" constant="80"/>
@@ -110,17 +124,6 @@
                                     <rect key="frame" x="490" y="60" width="80" height="190"/>
                                 </variation>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01W-lq-gMY">
-                                <rect key="frame" x="191" y="276.5" width="219" height="47"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="219" id="6bu-ME-RWi"/>
-                                    <constraint firstAttribute="height" constant="47" id="UC1-d4-9La"/>
-                                </constraints>
-                                <state key="normal" image="RESTART"/>
-                                <connections>
-                                    <action selector="restartButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nwB-Kh-e2m"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -143,7 +146,7 @@
                             <constraint firstItem="W0Z-uX-qJf" firstAttribute="centerX" secondItem="LMO-sc-fyp" secondAttribute="centerX" constant="-4" id="bm8-Zc-H8D"/>
                             <constraint firstItem="eiO-yD-WAA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dJh-Yy-PeF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="X3b-pv-D32" secondAttribute="bottom" id="dwI-Wl-4Uf"/>
-                            <constraint firstItem="X3b-pv-D32" firstAttribute="top" secondItem="QHC-3J-5bH" secondAttribute="bottom" id="eTI-XR-SHC"/>
+                            <constraint firstItem="X3b-pv-D32" firstAttribute="top" secondItem="QHC-3J-5bH" secondAttribute="bottom" constant="-9" id="eTI-XR-SHC"/>
                             <constraint firstItem="X3b-pv-D32" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fkc-ql-bGE"/>
                             <constraint firstAttribute="trailing" secondItem="eiO-yD-WAA" secondAttribute="trailing" id="nQy-pf-JrF"/>
                             <constraint firstItem="zTi-pI-kb2" firstAttribute="top" secondItem="LMO-sc-fyp" secondAttribute="bottom" constant="26" id="nmG-7N-oSX"/>
@@ -171,9 +174,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="faG-P2-sGN"/>
                     <connections>
+                        <outlet property="bgImg" destination="eiO-yD-WAA" id="S3V-86-7xv"/>
                         <outlet property="foodImg" destination="psC-gs-QH7" id="EYP-dS-qwO"/>
                         <outlet property="heartImg" destination="2SF-Xa-p1e" id="w9R-I4-FBd"/>
                         <outlet property="monsterImg" destination="QHC-3J-5bH" id="4KN-UM-FW4"/>
+                        <outlet property="obedience" destination="ZcL-kX-Zj8" id="A0F-N8-Jv1"/>
                         <outlet property="penalty1" destination="ckg-4g-Z4q" id="BjN-7r-BK6"/>
                         <outlet property="penalty2" destination="LK2-lh-UPc" id="S3h-aU-cnv"/>
                         <outlet property="penalty3" destination="mcb-Kp-g4g" id="vnB-AF-LCQ"/>
@@ -182,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="174" y="172"/>
+            <point key="canvasLocation" x="1797" y="-560"/>
         </scene>
         <!--Starting View Controller-->
         <scene sceneID="Wzr-iT-7hH">
@@ -196,7 +201,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="yDV-yg-YO3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monster1bg" translatesAutoresizingMaskIntoConstraints="NO" id="yDV-yg-YO3">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Bat-ST-QpB">
@@ -217,7 +222,7 @@
                                                     <constraint firstAttribute="height" constant="128" id="ChA-1Q-nfK"/>
                                                     <constraint firstAttribute="width" constant="190" id="eLF-SM-nNP"/>
                                                 </constraints>
-                                                <state key="normal" image="idle1"/>
+                                                <state key="normal" image="monster1idle1"/>
                                                 <connections>
                                                     <action selector="monster1Pressed:" destination="7l4-D1-CGV" eventType="touchUpInside" id="XB1-X1-cE1"/>
                                                 </connections>
@@ -228,7 +233,7 @@
                                                     <constraint firstAttribute="width" constant="134" id="SQe-6s-9bb"/>
                                                     <constraint firstAttribute="height" constant="129" id="np2-VC-kCg"/>
                                                 </constraints>
-                                                <state key="normal" image="appear (6)"/>
+                                                <state key="normal" image="monster2idle1"/>
                                                 <connections>
                                                     <action selector="monster2Pressed:" destination="7l4-D1-CGV" eventType="touchUpInside" id="poA-rf-WnM"/>
                                                 </connections>
@@ -248,11 +253,30 @@
                             <constraint firstItem="yDV-yg-YO3" firstAttribute="leading" secondItem="7GS-HR-Nah" secondAttribute="leading" id="WXb-Cg-0br"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="9m3-Jl-c8U"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="push" id="Kxb-jB-6Ki"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="moveToGame" id="TsW-eh-qca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6JR-XN-Qr8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1039" y="-560"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Js0-ZJ-21d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9pv-pi-9GY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F0X-wt-esg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7l4-D1-CGV" kind="relationship" relationship="rootViewController" id="B8n-D9-7fy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xVe-bS-ANe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="174" y="-560"/>
         </scene>
@@ -260,13 +284,14 @@
     <resources>
         <image name="PICK-A-MONSTER" width="761" height="94"/>
         <image name="RESTART" width="434" height="94"/>
-        <image name="appear (6)" width="267" height="260"/>
-        <image name="bg" width="768" height="1024"/>
+        <image name="dynamite (2)" width="132" height="150"/>
         <image name="food" width="95" height="98"/>
         <image name="ground" width="1444" height="151"/>
         <image name="heart" width="95" height="98"/>
-        <image name="idle1" width="554" height="372"/>
         <image name="livespanel" width="468" height="137"/>
+        <image name="monster1bg" width="768" height="1024"/>
+        <image name="monster1idle1" width="889" height="615"/>
+        <image name="monster2idle1" width="267" height="260"/>
         <image name="skull" width="95" height="98"/>
     </resources>
 </document>

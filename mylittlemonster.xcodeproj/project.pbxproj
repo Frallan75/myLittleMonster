@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA04A4181C647127002DD5A3 /* MonsterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04A4171C647127002DD5A3 /* MonsterModel.swift */; };
 		BA8E34B11C5D1D6900DC85F0 /* MonsterImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8E34B01C5D1D6900DC85F0 /* MonsterImg.swift */; };
 		BA8E34B71C61683600DC85F0 /* cave-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA8E34B21C61683600DC85F0 /* cave-music.mp3 */; };
 		BA8E34B81C61683600DC85F0 /* bite.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA8E34B31C61683600DC85F0 /* bite.wav */; };
@@ -16,13 +17,14 @@
 		BA8E34BE1C62A16400DC85F0 /* StartingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8E34BD1C62A16400DC85F0 /* StartingViewController.swift */; };
 		BACCFC4B1C5B286900507785 /* DragImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACCFC4A1C5B286900507785 /* DragImage.swift */; };
 		BADDDE6F1C5A7A3D00562C18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADDDE6E1C5A7A3D00562C18 /* AppDelegate.swift */; };
-		BADDDE711C5A7A3D00562C18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADDDE701C5A7A3D00562C18 /* ViewController.swift */; };
+		BADDDE711C5A7A3D00562C18 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADDDE701C5A7A3D00562C18 /* MainViewController.swift */; };
 		BADDDE741C5A7A3D00562C18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BADDDE721C5A7A3D00562C18 /* Main.storyboard */; };
 		BADDDE761C5A7A3D00562C18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADDDE751C5A7A3D00562C18 /* Assets.xcassets */; };
 		BADDDE791C5A7A3D00562C18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BADDDE771C5A7A3D00562C18 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA04A4171C647127002DD5A3 /* MonsterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterModel.swift; sourceTree = "<group>"; };
 		BA8E34B01C5D1D6900DC85F0 /* MonsterImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterImg.swift; sourceTree = "<group>"; };
 		BA8E34B21C61683600DC85F0 /* cave-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "cave-music.mp3"; sourceTree = "<group>"; };
 		BA8E34B31C61683600DC85F0 /* bite.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bite.wav; sourceTree = "<group>"; };
@@ -33,7 +35,7 @@
 		BACCFC4A1C5B286900507785 /* DragImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragImage.swift; sourceTree = "<group>"; };
 		BADDDE6B1C5A7A3D00562C18 /* mylittlemonster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mylittlemonster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BADDDE6E1C5A7A3D00562C18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BADDDE701C5A7A3D00562C18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BADDDE701C5A7A3D00562C18 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BADDDE731C5A7A3D00562C18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BADDDE751C5A7A3D00562C18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BADDDE781C5A7A3D00562C18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -85,9 +87,10 @@
 			children = (
 				BADDDE6E1C5A7A3D00562C18 /* AppDelegate.swift */,
 				BA8E34BD1C62A16400DC85F0 /* StartingViewController.swift */,
-				BADDDE701C5A7A3D00562C18 /* ViewController.swift */,
+				BADDDE701C5A7A3D00562C18 /* MainViewController.swift */,
 				BACCFC4A1C5B286900507785 /* DragImage.swift */,
 				BA8E34B01C5D1D6900DC85F0 /* MonsterImg.swift */,
+				BA04A4171C647127002DD5A3 /* MonsterModel.swift */,
 				BADDDE721C5A7A3D00562C18 /* Main.storyboard */,
 				BADDDE751C5A7A3D00562C18 /* Assets.xcassets */,
 				BADDDE771C5A7A3D00562C18 /* LaunchScreen.storyboard */,
@@ -172,8 +175,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA04A4181C647127002DD5A3 /* MonsterModel.swift in Sources */,
 				BA8E34B11C5D1D6900DC85F0 /* MonsterImg.swift in Sources */,
-				BADDDE711C5A7A3D00562C18 /* ViewController.swift in Sources */,
+				BADDDE711C5A7A3D00562C18 /* MainViewController.swift in Sources */,
 				BACCFC4B1C5B286900507785 /* DragImage.swift in Sources */,
 				BADDDE6F1C5A7A3D00562C18 /* AppDelegate.swift in Sources */,
 				BA8E34BE1C62A16400DC85F0 /* StartingViewController.swift in Sources */,

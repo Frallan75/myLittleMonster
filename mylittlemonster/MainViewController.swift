@@ -10,14 +10,16 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    
+
     @IBOutlet weak var monsterImg: MonsterImg!
     @IBOutlet weak var foodImg: DragImg!
     @IBOutlet weak var heartImg: DragImg!
+    @IBOutlet weak var obedience: DragImg!
     @IBOutlet weak var penalty1: UIImageView!
     @IBOutlet weak var penalty2: UIImageView!
     @IBOutlet weak var penalty3: UIImageView!
     @IBOutlet weak var restartButton: UIButton!
+    @IBOutlet weak var bgImg: UIImageView!
     
     let DIM_ALPHA: CGFloat = 0.2
     let OPAQUE_ALPHA: CGFloat = 1.0
@@ -28,6 +30,8 @@ class ViewController: UIViewController {
     var monsterHappy: Bool = true
     var monsterNeed: UInt32 = 0
     var currentHappyItem: UInt32 = 0
+    var selectedMonster: Int = 0
+    var monster: Monster!
     
     var musicPlayer: AVAudioPlayer!
     var sfxBite: AVAudioPlayer!
@@ -37,7 +41,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
+        print("right here")
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemDroppedOnTarget:", name: "onTargetDropped", object: nil)
 
         let musicUrl = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cave-music", ofType: ".mp3")!)
@@ -62,17 +68,36 @@ class ViewController: UIViewController {
         sfxBite.prepareToPlay()
         musicPlayer.play()
         
+        createMonster(selectedMonster)
+        
         foodImg.dropTarget = monsterImg
         heartImg.dropTarget = monsterImg
+        obedience.dropTarget = monsterImg
         
         restartButton.hidden = true
-        
+
         resetSkulls()
         resetFoodHeart()
         startTimer()
     }
     
+    func createMonster(selectedMonster: Int) {
+        
+        if selectedMonster == 0 {
+            monster = Monster(timerToSkull: 1.0, fileName: "monster1", bgFileName: "monster1bg")
+        }
+        else if selectedMonster == 1 {
+            monster = Monster(timerToSkull: 5.0, fileName: "monster2", bgFileName: "monster2bg")
+        }
+        else {
+            print("Error, no monster selected")
+        }
+        monsterImg.playIdleAnimation(monster.fileName)
+        bgImg.image = UIImage(named: "\(monster.bgFileName)")
+    }
+    
     func itemDroppedOnTarget(notif: AnyObject) {
+        
         monsterHappy = true
         
         if currentHappyItem == 1 {
@@ -81,7 +106,9 @@ class ViewController: UIViewController {
         else if currentHappyItem == 0 {
             sfxBite.play()
         }
-        
+        else if currentHappyItem == 2 {
+            sfxDeath.play()
+        }
         resetFoodHeart()
         startTimer()
     }
@@ -91,6 +118,8 @@ class ViewController: UIViewController {
         heartImg.userInteractionEnabled = false
         foodImg.alpha = DIM_ALPHA
         foodImg.userInteractionEnabled = false
+        obedience.alpha = DIM_ALPHA
+        obedience.userInteractionEnabled = false
     }
     
     func resetSkulls() {
@@ -104,7 +133,7 @@ class ViewController: UIViewController {
         if timer != nil {
             timer.invalidate()
         }
-        timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "changeGameState", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(monster!.timerToSkull, target: self, selector: "changeGameState", userInfo: nil, repeats: true)
     }
     
     func changeGameState() {
@@ -130,7 +159,7 @@ class ViewController: UIViewController {
         }
         else if monsterHappy {
             
-            let rand = arc4random_uniform(2)
+            let rand = arc4random_uniform(3)
             
             switch rand {
             case 0:
@@ -138,13 +167,24 @@ class ViewController: UIViewController {
                 foodImg.userInteractionEnabled = true
                 heartImg.alpha = DIM_ALPHA
                 heartImg.userInteractionEnabled = false
+                obedience.alpha = DIM_ALPHA
+                obedience.userInteractionEnabled = false
             case 1:
                 heartImg.alpha = OPAQUE_ALPHA
                 heartImg.userInteractionEnabled = true
                 foodImg.alpha = DIM_ALPHA
                 foodImg.userInteractionEnabled = false
+                obedience.alpha = DIM_ALPHA
+                obedience.userInteractionEnabled = false
+            case 2:
+                obedience.alpha = OPAQUE_ALPHA
+                obedience.userInteractionEnabled = true
+                foodImg.alpha = DIM_ALPHA
+                foodImg.userInteractionEnabled = false
+                heartImg.alpha = DIM_ALPHA
+                heartImg.userInteractionEnabled = false
             default:
-                print("Error, case state missing")
+                print("Error, game state missing")
             }
             currentHappyItem = rand
             monsterHappy = false
@@ -154,7 +194,7 @@ class ViewController: UIViewController {
     func gameOver() {
         timer.invalidate()
         sfxDeath.play()
-        monsterImg.playDeadAnimation()
+        monsterImg.playDeadAnimation(monster.fileName)
         restartButton.hidden = false
         resetFoodHeart()
     }
@@ -164,10 +204,9 @@ class ViewController: UIViewController {
         monsterHappy = true
         currentPenaltyCount = 0
         restartButton.hidden = true
-        
-        monsterImg.playIdleAnimation()
         resetFoodHeart()
         resetSkulls()
         startTimer()
+        self.navigationController?.popViewControllerAnimated(true)
     }
 }

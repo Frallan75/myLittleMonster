@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 class MonsterImg: UIImageView {
     
     override init(frame: CGRect) {
@@ -17,31 +18,29 @@ class MonsterImg: UIImageView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        playIdleAnimation()
     }
     
-    func playIdleAnimation() {
-        
-        self.image = UIImage(named: "idle1")
+    func playIdleAnimation(fileName: String) {
+        self.image = UIImage(named: "\(fileName)idle1")
         self.animationImages = nil
         var idleImageArray = [UIImage]()
         
         for var x = 1;x <= 4; x++ {
-            let img = UIImage(named: "idle\(x).png")
+            let img = UIImage(named: "\(fileName)idle\(x).png")
             idleImageArray.append(img!)
         }
         animate(idleImageArray, duration: 0.8, repetitions: 0)
         
     }
     
-    func playDeadAnimation() {
+    func playDeadAnimation(fileName: String) {
         
-        self.image = UIImage(named: "dead5.png")
+        self.image = UIImage(named: "\(fileName)dead5.png")
         self.animationImages = nil
         var deadImageArray = [UIImage]()
         
         for var x = 1; x <= 5; x++ {
-            let img = "dead\(x).png"
+            let img = "\(fileName)dead\(x).png"
             deadImageArray.append(UIImage(named: img)!)
         }
         animate(deadImageArray, duration: 1.0, repetitions: 1)
